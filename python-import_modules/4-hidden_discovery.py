@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-import dis
-import marshal
+import hidden_4
 
-with open("/tmp/hidden_4.pyc", "rb") as f:
-    f.read(16)  # пропускаем заголовок
-    code = marshal.load(f)
+if __name__ == '__main__':
+    def_names = dir(hidden_4)
 
-for name in sorted(code.co_names):
-    if not name.startswith("__"):
-        print(name)
+    for i in range(len(def_names)):
+        if def_names[i][:2] != '__':
+            print(def_names[i])
